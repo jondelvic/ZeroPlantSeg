@@ -161,7 +161,7 @@ def min_MHLdist_label(plant_seg, clustering_points, outlier_crd, clustering, out
         for contour in contours:
             for pt in contour:
                 try:
-                    dist = distance.mahalanobis(pt[0], outlier_crd, covmat_dict[label])
+                    dist = distance.mahalanobis([pt[0][1], pt[0][0]], outlier_crd, covmat_dict[label])
                     if 0 < dist < min_dist and dist < dist_th:
                         min_dist = dist
                         min_dist_label = label
