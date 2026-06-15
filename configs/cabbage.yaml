@@ -12,3 +12,10 @@ leaf_segmentation:
   max_area_th: 500000
   th_ratio: 0.85
   output_img_size: "(1024, 1024)"
+
+plant_segmentation:
+  num_steps: 10
+  min_area_th: 500
+  output_img_size: "(1024, 1024)"
+  default_eps: 120.0
+  default_min_samples: 2
