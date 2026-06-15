@@ -38,6 +38,10 @@ class SAMVisualizationDemo:
         self.text_features = text_features
 
     def run_on_image(self, img_bgr, class_names):
+        scale = 1024 / min(img_bgr.shape[:2]) #forgot to readd this hahaha OOMpsies
+        if scale < 1.0:
+            img_bgr = cv2.resize(img_bgr, (int(img_bgr.shape[1] * scale), int(img_bgr.shape[0] * scale)))
+
         rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
         raw_masks = self.mask_generator.generate(rgb)
 
@@ -95,7 +99,7 @@ def inference(img_paths: list, output_dir: str, config_path: str):
     clip_score_thresh = config.get('clip_score_thresh', 0.7)
 
 
-    demo = SAMVisualizationDemo(granularity, './weights/sam_vit_b_01ec64.pth', class_names, clip_score_thresh)
+    demo = SAMVisualizationDemo(granularity, './checkpoints/sam_vit_b_01ec64.pth', class_names, clip_score_thresh)
     for img_path in tqdm(img_paths):
 
         img = cv2.imread(img_path)
