@@ -113,3 +113,20 @@ Verify if GPU is visible:
 ```
 python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_capability(0))" #expected: True (12, 0)
 ```
+
+**Dependencies** <br>
+Use the RTX 5050-specific requirements file to download and install the dependencies and install `segment-anything` separately:
+```
+pip install -r requirements_5050_laptop.txt
+pip install git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
+```
+
+**Checkpoints** <br>
+```
+mkdir -p checkpoints
+wget -O checkpoints/sam_vit_b_01ec64.pth https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
+```
+> The original ZeroPlantSeg made use of SAM VIT-H + GroundDINO + OVSeg weights. This fork, for now, only needs SAM VIT-B.
+
+## Usage
+
