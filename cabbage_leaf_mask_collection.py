@@ -80,7 +80,8 @@ class SAMVisualizationDemo:
                 ins_segs[best_cls_idx].append({
                     "segmentation": mask_bin,
                     "area": area,
-                    "score": similarity[0, best_cls_idx].item()
+                    "score": similarity[0, best_cls_idx].item(),
+                    "bbox": [int(x), int(y), int(w), int(h)]
                 })
 
         return None, None, ins_segs
