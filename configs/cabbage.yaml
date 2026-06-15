@@ -1,0 +1,8 @@
+leaf_mask_collection:
+  class_names: "cabbage leaf,grass,soil,broadleaf weed" # broadleaf weed better than just "weed" or "grass" 
+  trg_class_names: "cabbage leaf"
+  granularity: 0.8
+  min_mask_area: 500
+  clip_score_thresh: 0.7
+  use_sliding_window: True
+  dsize: "(512, 512)"
