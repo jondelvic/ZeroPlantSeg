@@ -6,3 +6,9 @@ leaf_mask_collection:
   clip_score_thresh: 0.7
   use_sliding_window: True
   dsize: "(512, 512)"
+
+leaf_segmentation:
+  min_area_th: 500
+  max_area_th: 500000
+  th_ratio: 0.85
+  output_img_size: "(1024, 1024)"
