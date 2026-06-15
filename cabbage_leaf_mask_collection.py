@@ -81,7 +81,9 @@ class SAMVisualizationDemo:
                     "segmentation": mask_bin,
                     "area": area,
                     "score": similarity[0, best_cls_idx].item(),
-                    "bbox": [int(x), int(y), int(w), int(h)]
+                    "bbox": [int(x), int(y), int(w), int(h)],
+                    "predicted_iou": m["predicted_iou"],
+                    "stability_score": m["stability_score"]
                 })
 
         return None, None, ins_segs
