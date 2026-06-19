@@ -76,6 +76,7 @@ class SAMVisualizationDemo:
 
             # assumes single-image batch (batch size 1)
             best_cls_idx = similarity.argmax().item()
+            print(f"area={area:6d} | class={class_names[best_cls_idx]:20s} | score={similarity[0, best_cls_idx].item():.3f}")
             if similarity[0, best_cls_idx].item() > self.clip_score_thresh:
                 ins_segs[best_cls_idx].append({
                     "segmentation": mask_bin,

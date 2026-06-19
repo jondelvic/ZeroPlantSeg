@@ -1,5 +1,5 @@
 leaf_mask_collection:
-  class_names: "cabbage leaf,grass,soil,broadleaf weed" # broadleaf weed better than just "weed" or "grass" 
+  class_names: "cabbage leaf,grass,soil,broadleaf weed,rock,stone" # broadleaf weed better than just "weed" or "grass" 
   trg_class_names: "cabbage leaf"
   granularity: 0.8
   min_mask_area: 500
@@ -8,14 +8,14 @@ leaf_mask_collection:
   dsize: "(512, 512)"
 
 leaf_segmentation:
-  min_area_th: 500
+  min_area_th: 2900
   max_area_th: 500000
   th_ratio: 0.85
   output_img_size: "(1024, 1024)"
 
 plant_segmentation:
   num_steps: 10
-  min_area_th: 500
+  min_area_th: 2900
   output_img_size: "(1024, 1024)"
-  default_eps: 120.0
+  default_eps: 65.0
   default_min_samples: 2

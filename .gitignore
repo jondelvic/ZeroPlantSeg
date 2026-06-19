@@ -1,0 +1,3 @@
+output_p/**/*.png
+output_p/**/*.PNG
+checkpoints/*.pth
